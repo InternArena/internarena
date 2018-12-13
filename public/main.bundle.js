@@ -650,7 +650,7 @@ module.exports = "<p>\n  dashboard works!\n</p>\n"
 /***/ 693:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumobotron text-center\">\n    <h1>InternArena</h1>\n    <p class=\"lead\">Welcome</p>\n    <div>\n        <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n        <a class=\"btn btn-secondary\" [routerLink]=\"['/login']\">Login</a>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-md-4\">\n        <h3 class=\"text-center\">For students</h3>\n    </div>\n    <div class=\"col-md-4\">\n        <h3 class=\"text-center\">For startups</h3>\n    </div>\n    <div class=\"col-md-4\">\n        <h3 class=\"text-center\">For corporates</h3>\n    </div>\n</div>\n"
+module.exports = "<div class=\"jumbotron text-center\">\n    <h1 class=\"display-3\">InternArena</h1>\n    <p class=\"lead\">Welcome</p>\n    <div>\n        <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n        <a class=\"btn btn-secondary\" [routerLink]=\"['/login']\">Login</a>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <h3 class=\"text-center\"> For students</h3>\n        </div>\n        <div class=\"col-md-6\">\n            <h3 class=\"text-center\"> For companies</h3>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
