@@ -48,6 +48,13 @@ app.get('/',(req, res) => {
 });
 
 /*
+ *
+ */
+app.get("*",(req, res)=>{
+    res.send('Invalid endpoint');
+});
+
+/*
  * Setting the server that listens to port
  */
 const server = app.listen(port, () => {
@@ -58,7 +65,7 @@ const server = app.listen(port, () => {
  *  Setting database
  */
 //test
-connection.query('SELECT name FROM actors', (err, rows, fields) => {
+connection.query('SELECT name FROM user_registration', (err, rows, fields) => {
     if(err){
         console.log('error');
         throw(err);
