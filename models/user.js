@@ -4,7 +4,7 @@ const config = require('../config/database');
 const connection = require('../config/connection');
 
 /*
- *  User Schema
+ *  user_registration Schema
  */
 class UserSchema {
     constructor(name, email, username, password){
@@ -29,6 +29,7 @@ module.exports.getUserById = function(id, callback){
         callback(null, result[0]);//(may get more than one row)
     });  
 }
+
 module.exports.getUserByUsername = function(username, callback){
     var sql = "SELECT * " +
               "FROM user_registration " +
@@ -41,7 +42,7 @@ module.exports.getUserByUsername = function(username, callback){
         callback(null, result[0]);
     });
 }
-//var User = module.exports = UserSchema;
+
 module.exports.addUser = function(newUser, callback){
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {

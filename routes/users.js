@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const config = require('../config/database');
 /*
- * Register
+ * User register
  */
 router.post('/register', (req, res, next) => {    
     var newUser = new User(
@@ -14,7 +14,6 @@ router.post('/register', (req, res, next) => {
         req.body.username,
         req.body.password   
     );
-    //console.log(req.body.name);
     User.addUser(newUser, (err, user) => {
         if(err){
             res.json({success: false, msg: 'Failed to register user'});
@@ -25,12 +24,11 @@ router.post('/register', (req, res, next) => {
 });
 
 /*
- * Authenticate
+ * User authenticate
  */
 router.post('/authenticate', (req, res, next) => {
     var username = req.body.username;
     var password = req.body.password;
-    
     User.getUserByUsername(username, (err, user) => {
         if(err){
             throw err;
@@ -47,7 +45,7 @@ router.post('/authenticate', (req, res, next) => {
                     id_user : user.id_user, 
                     name : user.name, 
                     username : user.username, 
-                    password : user.user, 
+                    password : user.password, 
                     email : user.email
                 },
                 config.secret, {
@@ -72,7 +70,7 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 /*
- * Profile
+ * User profile
  */
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     res.json({user: req.user});
