@@ -44,9 +44,9 @@ router.post('/authenticate', (req, res, next) => {
                 const token = jwt.sign({
                     id_user : user.id_user, 
                     name : user.name, 
-                    username : user.username, 
-                    password : user.password, 
-                    email : user.email
+                    username : user.username,  
+                    email : user.email,
+                    password : user.password
                 },
                 config.secret, {
                     expiresIn: '3600m'
@@ -73,6 +73,7 @@ router.post('/authenticate', (req, res, next) => {
  * User profile
  */
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    //console.log(req.user);
     res.json({user: req.user});
 });
 

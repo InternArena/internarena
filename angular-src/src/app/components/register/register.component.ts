@@ -15,6 +15,9 @@ export class RegisterComponent implements OnInit {
     email: String;
     password: String;
 
+    companyFront: boolean = false;
+    userFront: boolean = false;
+
     constructor(
         private validateService: ValidateService,
         private flashMessage: FlashMessagesService,
@@ -25,22 +28,62 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
     }
     
-    onRegisterSubmit(){
+    choosing(){//front
+        return (this.companyFront == false && this.userFront == false);
+    }    
+    trueCompany(){//front
+        return this.companyFront;
+    }
+    trueUser(){//front
+        return this.userFront;
+    }
+    onClickUser(){
+        this.userFront = true;
+    }    
+    onClickCompany(){
+        this.companyFront = true;
+    }
+
+    onRegisterSubmitUser(){
         const user = {
             name: this.name,
             email: this.email,
             username: this.username,
             password: this.password
         }
-        if(!this.validateService.validateRegister(user)){
+        if(!this.validateService.validateRegisterUser(user)){
             this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
             return false;
         }
-        if(!this.validateService.validateEmail(user.email)){
+        if(!this.validateService.validateEmailUser(user.email)){
             this.flashMessage.show('Please valid email', {cssClass: 'alert-danger', timeout: 3000});
             return false;
         }
         this.authService.registerUser(user).subscribe(data => {
+            if(data.success){
+                this.flashMessage.show('Register success', {cssClass: 'alert-success', timeout: 3000});
+                this.router.navigate(['/login']);
+            }else{
+                this.flashMessage.show('Register failed', {cssClass: 'alert-danger', timeout: 3000});
+                this.router.navigate(['/register']);
+            }
+        });
+    }
+    onRegisterSubmitCompany(){
+        const company = {
+            name: this.name,
+            email: this.email,
+            password: this.password
+        }
+        if(!this.validateService.validateRegisterCompany(company)){
+            this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
+            return false;
+        }
+        if(!this.validateService.validateEmailCompany(company.email)){
+            this.flashMessage.show('Please valid email', {cssClass: 'alert-danger', timeout: 3000});
+            return false;
+        }
+        this.authService.registerCompany(company).subscribe(data => {
             if(data.success){
                 this.flashMessage.show('Register success', {cssClass: 'alert-success', timeout: 3000});
                 this.router.navigate(['/login']);

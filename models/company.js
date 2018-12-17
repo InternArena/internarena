@@ -76,3 +76,4 @@ module.exports.comparePasswords = function(inputPassword, hashedOkPassword, call
         callback(null, isMatch);
     });
 }
+

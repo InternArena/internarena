@@ -4,4 +4,11 @@
         <li class="list-group-item">Username: {{user.username}}</li>
         <li class="list-group-item">Email: {{user.email}}</li>
     </ul>
-<div>
+</div>
+<div *ngIf="company">
+    <h2 class="page-header">{{company.name}}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Name: {{company.name}}</li>
+    </ul>
+</div>
+

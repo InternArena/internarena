@@ -19,7 +19,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ValidateService = (function () {
     function ValidateService() {
     }
-    ValidateService.prototype.validateRegister = function (user) {
+    ValidateService.prototype.validateRegisterUser = function (user) {
         if (user.name == undefined ||
             user.email == undefined ||
             user.username == undefined ||
@@ -27,7 +27,18 @@ var ValidateService = (function () {
             return false;
         return true;
     };
-    ValidateService.prototype.validateEmail = function (email) {
+    ValidateService.prototype.validateEmailUser = function (email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
+    ValidateService.prototype.validateRegisterCompany = function (company) {
+        if (company.name == undefined ||
+            company.email == undefined ||
+            company.password == undefined)
+            return false;
+        return true;
+    };
+    ValidateService.prototype.validateEmailCompany = function (email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     };
@@ -164,7 +175,7 @@ var appRoutes = [
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_8__components_login_login_component__["a" /* LoginComponent */] },
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__guards_auth_guard__["a" /* AuthGuard */]] }
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -301,10 +312,27 @@ var LoginComponent = (function () {
         this.authService = authService;
         this.router = router;
         this.flashMessage = flashMessage;
+        this.companyFront = false;
+        this.userFront = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
-    LoginComponent.prototype.onLoginSubmit = function () {
+    LoginComponent.prototype.choosing = function () {
+        return (this.companyFront == false && this.userFront == false);
+    };
+    LoginComponent.prototype.trueCompany = function () {
+        return this.companyFront;
+    };
+    LoginComponent.prototype.trueUser = function () {
+        return this.userFront;
+    };
+    LoginComponent.prototype.onClickUser = function () {
+        this.userFront = true;
+    };
+    LoginComponent.prototype.onClickCompany = function () {
+        this.companyFront = true;
+    };
+    LoginComponent.prototype.onLoginSubmitUser = function () {
         var _this = this;
         var user = {
             username: this.username,
@@ -312,8 +340,32 @@ var LoginComponent = (function () {
         };
         this.authService.authenticateUser(user).subscribe(function (data) {
             if (data.success) {
-                _this.authService.storeUserData(data.token, data.user);
+                _this.authService.storeDataUser(data.token, data.user);
                 _this.flashMessage.show('You are logged in', {
+                    cssClass: 'alert-success',
+                    timeout: 3000
+                });
+                _this.router.navigate(['dashboard']);
+            }
+            else {
+                _this.flashMessage.show(data.msg, {
+                    cssClass: 'alert-danger',
+                    timeout: 3000
+                });
+                _this.router.navigate(['login']);
+            }
+        });
+    };
+    LoginComponent.prototype.onLoginSubmitCompany = function () {
+        var _this = this;
+        var company = {
+            email: this.email,
+            password: this.password
+        };
+        this.authService.authenticateCompany(company).subscribe(function (data) {
+            if (data.success) {
+                _this.authService.storeDataCompany(data.token, data.company);
+                _this.flashMessage.show('Company logged in', {
                     cssClass: 'alert-success',
                     timeout: 3000
                 });
@@ -425,12 +477,25 @@ var ProfileComponent = (function () {
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.authService.getProfile().subscribe(function (profile) {
-            _this.user = profile.user;
-        }, function (err) {
-            console.log(err);
-            return false;
-        });
+        //console.log(this.authService.loggedInCompany());
+        if (this.authService.loggedInCompany()) {
+            this.authService.getProfileCompany().subscribe(function (profile) {
+                console.log(profile.company);
+                _this.company = profile.company;
+            }, function (err) {
+                console.log(err);
+                return false;
+            });
+        }
+        else if (this.authService.loggedInUser()) {
+            this.authService.getProfileUser().subscribe(function (profile) {
+                console.log(profile.user);
+                _this.user = profile.user;
+            }, function (err) {
+                console.log(err);
+                return false;
+            });
+        }
     };
     ProfileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -478,10 +543,27 @@ var RegisterComponent = (function () {
         this.flashMessage = flashMessage;
         this.authService = authService;
         this.router = router;
+        this.companyFront = false;
+        this.userFront = false;
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
-    RegisterComponent.prototype.onRegisterSubmit = function () {
+    RegisterComponent.prototype.choosing = function () {
+        return (this.companyFront == false && this.userFront == false);
+    };
+    RegisterComponent.prototype.trueCompany = function () {
+        return this.companyFront;
+    };
+    RegisterComponent.prototype.trueUser = function () {
+        return this.userFront;
+    };
+    RegisterComponent.prototype.onClickUser = function () {
+        this.userFront = true;
+    };
+    RegisterComponent.prototype.onClickCompany = function () {
+        this.companyFront = true;
+    };
+    RegisterComponent.prototype.onRegisterSubmitUser = function () {
         var _this = this;
         var user = {
             name: this.name,
@@ -489,15 +571,41 @@ var RegisterComponent = (function () {
             username: this.username,
             password: this.password
         };
-        if (!this.validateService.validateRegister(user)) {
+        if (!this.validateService.validateRegisterUser(user)) {
             this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
         }
-        if (!this.validateService.validateEmail(user.email)) {
+        if (!this.validateService.validateEmailUser(user.email)) {
             this.flashMessage.show('Please valid email', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
         }
         this.authService.registerUser(user).subscribe(function (data) {
+            if (data.success) {
+                _this.flashMessage.show('Register success', { cssClass: 'alert-success', timeout: 3000 });
+                _this.router.navigate(['/login']);
+            }
+            else {
+                _this.flashMessage.show('Register failed', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.router.navigate(['/register']);
+            }
+        });
+    };
+    RegisterComponent.prototype.onRegisterSubmitCompany = function () {
+        var _this = this;
+        var company = {
+            name: this.name,
+            email: this.email,
+            password: this.password
+        };
+        if (!this.validateService.validateRegisterCompany(company)) {
+            this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        if (!this.validateService.validateEmailCompany(company.email)) {
+            this.flashMessage.show('Please valid email', { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        this.authService.registerCompany(company).subscribe(function (data) {
             if (data.success) {
                 _this.flashMessage.show('Register success', { cssClass: 'alert-success', timeout: 3000 });
                 _this.router.navigate(['/login']);
@@ -657,7 +765,7 @@ module.exports = "<div class=\"jumbotron text-center\">\n    <h1 class=\"display
 /***/ 694:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Login</h2>\n<form (submit)=\"onLoginSubmit()\">\n    <div class=\"form-group\">\n        <label>Username</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n    </div>\n    <div class=\"form-group\">\n        <label>Password</label>\n        <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n    </div>\n    <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>\n"
+module.exports = "<div *ngIf=\"choosing()\">\n    <h4>What do you represent?</h4>\n    <button (click)=\"onClickUser()\" class=\"btn btn-primary\">User</button>\n    <button (click)=\"onClickCompany()\" class=\"btn btn-primary\">Company</button>\n</div>\n<div class=\"row\" *ngIf=\"!choosing()\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <form (submit)=\"onLoginSubmitUser()\">  \n            <h2 class=\"page-header\">User login</h2>\n            <div class=\"form-group\">\n                <label>Username</label>\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <form (submit)=\"onLoginSubmitCompany()\">\n            <h2 class=\"page-header\">Company login</h2>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -671,14 +779,14 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
 /***/ 696:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n    <h2 class=\"page-header\">{{user.name}}</h2>\n    <ul class=\"list-group\">\n        <li class=\"list-group-item\">Username: {{user.username}}</li>\n        <li class=\"list-group-item\">Email: {{user.email}}</li>\n    </ul>\n<div>\n"
+module.exports = "<div *ngIf=\"user\">\n    <h2 class=\"page-header\">{{user.name}}</h2>\n    <ul class=\"list-group\">\n        <li class=\"list-group-item\">Username: {{user.username}}</li>\n        <li class=\"list-group-item\">Email: {{user.email}}</li>\n    </ul>\n</div>\n<div *ngIf=\"company\">\n    <h2 class=\"page-header\">{{company.name}}</h2>\n    <ul class=\"list-group\">\n        <li class=\"list-group-item\">Name: {{company.name}}</li>\n    </ul>\n</div>\n\n"
 
 /***/ }),
 
 /***/ 697:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">User Register</h2>\n<form (submit)=\"onRegisterSubmit()\">\n    <div class=\"form-group\">\n        <label>Name</label>\n        <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n        <label>Username</label>\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\"class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n        <label>Email</label>\n        <input type=\"text\" [(ngModel)]=\"email\" name=\"email\"class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n        <label>Password</label>\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n    </div>\n    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n"
+module.exports = "<div *ngIf=\"choosing()\">\n    <h4>What do you want to register?</h4>\n    <button (click)=\"onClickUser()\" class=\"btn btn-primary\">User</button>\n    <button (click)=\"onClickCompany()\" class=\"btn btn-primary\">Company</button>\n</div>\n<div class=\"row\" *ngIf=\"!choosing()\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">User Register</h2>\n        <form (submit)=\"onRegisterSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Username</label>\n                <input type=\"text\" [(ngModel)]=\"username\" name=\"username\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" [(ngModel)]=\"email\" name=\"email\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Company Register</h2>\n        <form (submit)=\"onRegisterSubmitCompany()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" [(ngModel)]=\"email\" name=\"email\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -725,13 +833,25 @@ var AuthService = (function () {
         return this.http.post(urlPath + '/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    AuthService.prototype.registerCompany = function (company) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-type', 'application/json');
+        return this.http.post(urlPath + '/companies/register', company, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         return this.http.post(urlPath + '/users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    AuthService.prototype.getProfile = function () {
+    AuthService.prototype.authenticateCompany = function (company) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(urlPath + '/companies/authenticate', company, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getProfileUser = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
@@ -739,14 +859,36 @@ var AuthService = (function () {
         return this.http.get(urlPath + '/users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    AuthService.prototype.storeUserData = function (token, user) {
+    AuthService.prototype.getProfileCompany = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(urlPath + '/companies/profile', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.storeDataUser = function (token, user) {
+        localStorage.setItem('type', 'user');
         localStorage.setItem('id_token', token);
         localStorage.setItem('user', JSON.stringify(user));
         this.authToken = token;
         this.user = user;
     };
+    AuthService.prototype.storeDataCompany = function (token, company) {
+        localStorage.setItem('type', 'company');
+        localStorage.setItem('id_token', token);
+        localStorage.setItem('company', JSON.stringify(company));
+        this.authToken = token;
+        this.company = company;
+    };
     AuthService.prototype.loggedIn = function () {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__["tokenNotExpired"])('id_token');
+    };
+    AuthService.prototype.loggedInUser = function () {
+        return (localStorage.getItem('type') == 'user');
+    };
+    AuthService.prototype.loggedInCompany = function () {
+        return (localStorage.getItem('type') == 'company');
     };
     AuthService.prototype.loadToken = function () {
         var token = localStorage.getItem('id_token');
@@ -755,6 +897,7 @@ var AuthService = (function () {
     AuthService.prototype.logout = function () {
         this.authToken = null;
         this.user = null;
+        this.company = null;
         localStorage.clear();
     };
     AuthService = __decorate([

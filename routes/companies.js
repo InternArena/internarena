@@ -71,7 +71,7 @@ router.post('/authenticate', (req, res, next) => {
  * Company profile
  */
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-    res.json({company: req.company});
+    res.json({company: req.user});// nu stiu de ce nu merge cu company
 });
 
 module.exports = router;

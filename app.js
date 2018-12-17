@@ -21,6 +21,11 @@ app.use((req, res, next) => {
 });
 
 /*
+ * Set static folders
+ */
+app.use(express.static(path.join(__dirname, 'public')));
+
+/*
  * Body parser
  */
 app.use(bodyParser.json());
@@ -38,14 +43,9 @@ require('./config/passport')(passport);
 app.use('/users', users);
 
 /*
- * 
+ * use companies 
  */
 app.use('/companies',companies);
-
-/*
- * Set static folders
- */
-app.use(express.static(path.join(__dirname, 'public')));
 
 /*
  * Index route
