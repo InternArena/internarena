@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const Company = require('../models/company');
 const config = require('../config/database');
+
+const Company = require('../models/company');
+const CompanyProfile = require('../models/company_profile');
+const JobOffer = require('../models/job_offer');
 
 /*
  * Company register
@@ -73,5 +76,44 @@ router.post('/authenticate', (req, res, next) => {
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     res.json({company: req.user});// nu stiu de ce nu merge cu company
 });
+
+/*
+ * Full profile
+ */
+router.get('/full-profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    CompanyProfile.getCompanyProfileById(req.user.id_company, (err, companyProfile) => {
+        res.json({company: companyProfile});
+    });
+});
+
+/*
+ * Edit full profile
+ */
+router.post('/edit-full-profile', (req, res, next) => {
+    CompanyProfile.editCompanyProfileByEmail(req.body, () => {
+        res.json({success: true, msg:"Profile edited"});
+    });
+});
+
+/*
+ * Add job offer
+ */
+router.post('/add-job-offer', (req, res, next) => {   
+    var newJobOffer = new JobOffer(
+        req.body.name,
+        req.body.description,
+        req.body.id_company
+    );
+    //console.log(req.body);
+    JobOffer.addJobOffer(newJobOffer, (err, jobOffer) => {
+        if(err){
+            res.json({success: false, msg: 'Failed to add offer'});
+        }else{
+            res.json({success: true, msg: 'Successful added offer'});
+        }
+    });
+});
+
+
 
 module.exports = router;

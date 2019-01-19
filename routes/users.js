@@ -2,8 +2,12 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
 const config = require('../config/database');
+
+const User = require('../models/user');
+const UserProfile = require('../models/user_profile');
+const JobOffer = require('../models/job_offer');
+
 /*
  * User register
  */
@@ -73,8 +77,39 @@ router.post('/authenticate', (req, res, next) => {
  * User profile
  */
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-    //console.log(req.user);
     res.json({user: req.user});
+});
+
+/*
+ * Full profile
+ */
+router.get('/full-profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    console.log(req.headers);
+    UserProfile.getUserProfileById(req.user.id_user, (err, userProfile) => {
+        res.json({user: userProfile});
+    });
+});
+
+/*
+ * Edit full profile
+ */
+router.post('/edit-full-profile', (req, res, next) => {
+    UserProfile.editUserProfileByUsername(req.body, () => {
+        //console.log(req.body);
+        res.json({success: true, msg:"Profile edited"});
+    });
+});
+
+/*
+ * Get all offers
+ */
+router.get('/get-job-offers', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    //console.log(req.headers.firstofferindex);
+    //res.json({asd:true});
+    JobOffer.getJobOfferPage(req.headers.firstofferindex, (err, jobOffers) => {
+        //console.log(jobOffers[0]);
+        res.json({response: jobOffers[0]});
+    });
 });
 
 module.exports = router;

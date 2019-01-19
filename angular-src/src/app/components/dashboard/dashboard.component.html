@@ -1,3 +1,12 @@
-<p>
-  dashboard works!
-</p>
+<button *ngIf="!firstPage()" (click)="onClickPrevPage()" class="btn btn-primary">Previous page</button>
+<p> First Offer on site: {{this.firstOffer + 1}} </p> 
+<p> Last Offer on site: {{this.firstOffer + 10}}</p>
+<button (click)="onClickNextPage()" class="btn btn-primary">Next page</button>
+<ul class="list-group">
+    <li *ngFor="let i of this.jobOffers" class="list-group-item">
+        <div class="form-group">
+            <h3>{{i['name']}}</h3>
+            <p>{{i['description']}}</p>
+        </div>
+    </li>
+</ul>

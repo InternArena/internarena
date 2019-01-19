@@ -13,6 +13,30 @@ export class AuthService {
 
     constructor(private http: Http) { }
 
+    getJobOffers(firstOfferIndex){
+        let headers = new Headers();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('FirstOfferIndex', firstOfferIndex);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(urlPath + '/users/get-job-offers', {headers: headers})
+            .map(res => res.json());
+    }
+
+    editCvUser(cvData){
+        let headers = new Headers();
+        headers.append('Content-type', 'application/json');
+        return this.http.post(urlPath + '/users/edit-cv', cvData, {headers: headers})
+            .map(res => res.json());
+    }
+
+    addJobOffer(jobOffer){
+        let headers = new Headers();
+        headers.append('Content-type', 'application/json');
+        return this.http.post(urlPath + '/companies/add-job-offer', jobOffer, {headers: headers})
+            .map(res => res.json());
+    }
+
     registerUser(user){
         let headers = new Headers();
         headers.append('Content-type', 'application/json');
@@ -39,6 +63,36 @@ export class AuthService {
             .map(res => res.json());
     }
     
+    editProfileUser(userProfile){
+        let headers = new Headers();
+        headers.append('Content-type', 'application/json');
+        return this.http.post(urlPath + '/users/edit-full-profile', userProfile, {headers:headers})
+            .map(res => res.json());
+    }
+    editProfileCompany(companyProfile){
+        let headers = new Headers();
+        headers.append('Content-type', 'application/json');
+        return this.http.post(urlPath + '/companies/edit-full-profile', companyProfile, {headers:headers})
+            .map(res => res.json());
+    }
+
+    getFullProfileUser(){
+        let headers = new Headers();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(urlPath + '/users/full-profile', {headers: headers})
+            .map(res => res.json());
+    }
+    getFullProfileCompany(){
+        let headers = new Headers();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(urlPath + '/companies/full-profile', {headers: headers})
+            .map(res => res.json());
+    }
+
     getProfileUser(){
         let headers = new Headers();
         this.loadToken();

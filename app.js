@@ -77,7 +77,7 @@ connection.query('SELECT name FROM user_registration', (err, rows, fields) => {
         console.log('error');
         throw(err);
     }
-    console.log('the actor name is ', rows[0]);
+    console.log('the username name is ', rows[0]);
 });
 
 

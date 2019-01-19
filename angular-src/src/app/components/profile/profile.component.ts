@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
     styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-    user: Object;
-    company: Object;
+    userProfile: Object;
+    companyProfile: Object;
 
     constructor(
         private router: Router,
@@ -17,20 +17,19 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnInit() {
-        //console.log(this.authService.loggedInCompany());
         if(this.authService.loggedInCompany()){
-            this.authService.getProfileCompany().subscribe(profile => {
+            this.authService.getFullProfileCompany().subscribe(profile => {
                 console.log(profile.company);
-                this.company = profile.company;
+                this.companyProfile = profile.company;
             }, 
             err => {
                 console.log(err);
                 return false;
             });
         }else if(this.authService.loggedInUser()){
-            this.authService.getProfileUser().subscribe(profile => {
+            this.authService.getFullProfileUser().subscribe(profile => {
                 console.log(profile.user);
-                this.user = profile.user;
+                this.userProfile = profile.user;
             },
             err =>{
                 console.log(err);
@@ -38,6 +37,16 @@ export class ProfileComponent implements OnInit {
             });
         }
     }
-
-    
+        /*
+    onClickEditProfile(){
+        this.authService.getFullProfileUser().subscribe(profile =>{
+            console.log(1);
+            
+        },
+        err => {
+            console.log(err);
+            return false;
+        });
+    } 
+         */
 }
