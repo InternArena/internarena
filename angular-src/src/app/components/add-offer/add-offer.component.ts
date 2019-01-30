@@ -11,6 +11,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class AddOfferComponent implements OnInit {
     name: String;
     description: String;
+    skill: String;
     id_company: number;
 
     constructor(
@@ -33,7 +34,8 @@ export class AddOfferComponent implements OnInit {
             const jobOffer = {
                 name: this.name,
                 description: this.description,
-                id_company: profile.company.id_company
+                id_company: profile.company.id_company,
+                skill: this.skill
             };
             ///checker needed
             this.authService.addJobOffer(jobOffer).subscribe(data => {
@@ -44,7 +46,6 @@ export class AddOfferComponent implements OnInit {
                     this.flashMessage.show('Job offer failed', {cssClass: 'alert-danger', timeout:3000});
                     this.router.navigate(['/profile']);
                 }
-           
             });
         },
         err => {

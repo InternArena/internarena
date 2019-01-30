@@ -85,7 +85,7 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
  * Full profile
  */
 router.get('/full-profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-    console.log(req.headers);
+    //console.log(req.headers);
     UserProfile.getUserProfileById(req.user.id_user, (err, userProfile) => {
         res.json({user: userProfile});
     });
@@ -107,7 +107,8 @@ router.post('/edit-full-profile', (req, res, next) => {
 router.get('/get-job-offers', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     //console.log(req.headers.firstofferindex);
     //res.json({asd:true});
-    JobOffer.getJobOfferPage(req.headers.firstofferindex, (err, jobOffers) => {
+    //console.log(req.user.id_user);
+    JobOffer.getJobOfferPage(req.user.id_user,req.headers.firstofferindex, (err, jobOffers) => {
         //console.log(jobOffers[0]);
         res.json({response: jobOffers[0]});
     });

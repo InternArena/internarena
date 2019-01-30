@@ -442,7 +442,8 @@ var AddOfferComponent = (function () {
             var jobOffer = {
                 name: _this.name,
                 description: _this.description,
-                id_company: profile.company.id_company
+                id_company: profile.company.id_company,
+                skill: _this.skill
             };
             ///checker needed
             _this.authService.addJobOffer(jobOffer).subscribe(function (data) {
@@ -1384,7 +1385,7 @@ module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <fla
 /***/ 704:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\"> \n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onAddOfferSubmit()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
+module.exports = "<div class=\"row\"> \n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onAddOfferSubmit()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n                <div class=\"form-group\">\n\t\t            <label>Skill</label>\n                    <div class=\"col-lg-4\">\n                        <select [(ngModel)]=\"skill\" name=\"skill\" class=\"form-control\" id=\"sel1\">\n                            <option>JAVA</option>\n                            <option>C++</option>\n                \t        <option>C</option>\n                            <option>SQL</option>\n                            <option>Python</option>\n                            <option>Javascript</option>\n                        </select>\n\t\t            </div>\n                </div>\n                \n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 

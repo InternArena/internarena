@@ -102,7 +102,8 @@ router.post('/add-job-offer', (req, res, next) => {
     var newJobOffer = new JobOffer(
         req.body.name,
         req.body.description,
-        req.body.id_company
+        req.body.id_company,
+        req.body.skill
     );
     //console.log(req.body);
     JobOffer.addJobOffer(newJobOffer, (err, jobOffer) => {
