@@ -11,26 +11,18 @@
                 <input type="text" [(ngModel)]="description" name="description" class="form-control">
             </div>
             <div class="form-group">
-                <label>Education</label>
-                <input type="text" [(ngModel)]="education" name="education"class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Skills</label>
-		<select class="form-control">
-		    <option value="001">Software Engineer</option>
-		    <option value="002">Hardware Engineer</option>
-		    <option value="003">Web Dsigner</option>
-		    <option value="004">Intern(slave/jobless)</option>
-		</select>
-                <label>Level</label>
-		<select class="form-control">
-		    <option value="001">Apprentice</option>
-		    <option value="002">Initiated</option>
-		    <option value="003">Master</option>
-		    <option value="004">Grandmaster</option>
-		</select>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Submit">
+                <button (click)="onClickAddSkill()" class="btn btn-primary">Add skill</button>
+                <input type="text" [(ngModel)]="skillName" name="skillName" class="form-control">
+            </div>            
+            <ul class="list-group">
+                <li *ngFor="let i of this.skills" class="list-group-item">
+                    <div class="form-group">
+                        <p>{{i}}</p>
+                    </div>
+                </li>
+            </ul>   
+            <input type="submit" class="btn btn-primary" value="Submit CV">  
+        
         </form>
     </div>
 </div>

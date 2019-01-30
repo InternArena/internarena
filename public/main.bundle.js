@@ -571,21 +571,30 @@ var EditCvComponent = (function () {
         this.authService = authService;
         this.router = router;
         this.flashMessage = flashMessage;
-        this.companyFront = false;
+        this.skills = [];
+        this.skillsNr = 0;
         this.userFront = false;
     }
     EditCvComponent.prototype.ngOnInit = function () {
+        this.skillsNr = 0;
     };
     EditCvComponent.prototype.trueUser = function () {
         return this.authService.loggedInUser();
+    };
+    EditCvComponent.prototype.onClickAddSkill = function () {
+        this.skills.push(this.skillName);
+        this.skillName = "";
+    };
+    EditCvComponent.prototype.updateCVEditor = function () {
     };
     EditCvComponent.prototype.onEditCvSubmitUser = function () {
         var _this = this;
         this.authService.getProfileUser().subscribe(function (profile) {
             var cvData = {
-                education: _this.education,
+                name: _this.name,
+                username: profile.user.username,
                 description: _this.description,
-                username: profile.user.username
+                skills: _this.skills
             };
             _this.authService.editCvUser(cvData).subscribe(function (data) {
                 if (data.success) {
@@ -1296,7 +1305,7 @@ module.exports = "<button *ngIf=\"!firstPage()\" (click)=\"onClickPrevPage()\" c
 /***/ 702:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user CV</h2>\n        <form (submit)=\"onEditCvSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Education</label>\n                <input type=\"text\" [(ngModel)]=\"education\" name=\"education\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Skills</label>\n\t\t<select class=\"form-control\">\n\t\t    <option value=\"001\">Software Engineer</option>\n\t\t    <option value=\"002\">Hardware Engineer</option>\n\t\t    <option value=\"003\">Web Dsigner</option>\n\t\t    <option value=\"004\">Intern(slave/jobless)</option>\n\t\t</select>\n                <label>Level</label>\n\t\t<select class=\"form-control\">\n\t\t    <option value=\"001\">Apprentice</option>\n\t\t    <option value=\"002\">Initiated</option>\n\t\t    <option value=\"003\">Master</option>\n\t\t    <option value=\"004\">Grandmaster</option>\n\t\t</select>\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user CV</h2>\n        <form (submit)=\"onEditCvSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <button (click)=\"onClickAddSkill()\" class=\"btn btn-primary\">Add skill</button>\n                <input type=\"text\" [(ngModel)]=\"skillName\" name=\"skillName\" class=\"form-control\">\n            </div>            \n            <ul class=\"list-group\">\n                <li *ngFor=\"let i of this.skills\" class=\"list-group-item\">\n                    <div class=\"form-group\">\n                        <p>{{i}}</p>\n                    </div>\n                </li>\n            </ul>   \n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit CV\">  \n        \n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 

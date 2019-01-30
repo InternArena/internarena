@@ -9,12 +9,18 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./edit-cv.component.css']
 })
 export class EditCvComponent implements OnInit {
+    skills: String[] = [];
+    skillsNr:number = 0;
+
+    education:{
+	    id_education: number,
+	    details: String
+    }[];
+
     name: String;
-    education: String;
+    skillName: String;
     description: String;
 
-
-    companyFront: boolean = false;
     userFront: boolean = false;
 
     constructor(
@@ -24,16 +30,24 @@ export class EditCvComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.skillsNr = 0;
     }
     trueUser(){
         return this.authService.loggedInUser();
     } 
+    onClickAddSkill(){
+        this.skills.push(this.skillName); 
+        this.skillName = "";
+    }
+    updateCVEditor(){
+    }
     onEditCvSubmitUser(){ 
         this.authService.getProfileUser().subscribe(profile => {
             const cvData = {
-                education: this.education,
-                description: this.description,
-                username: profile.user.username
+                name: this.name,
+                username: profile.user.username,
+		        description: this.description,
+		        skills: this.skills
 	        };
             this.authService.editCvUser(cvData).subscribe(data => {
                 if(data.success){

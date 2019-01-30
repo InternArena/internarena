@@ -7,6 +7,7 @@ const config = require('../config/database');
 const User = require('../models/user');
 const UserProfile = require('../models/user_profile');
 const JobOffer = require('../models/job_offer');
+const Cv = require('../models/cv');
 
 /*
  * User register
@@ -109,6 +110,17 @@ router.get('/get-job-offers', passport.authenticate('jwt', {session: false}), (r
     JobOffer.getJobOfferPage(req.headers.firstofferindex, (err, jobOffers) => {
         //console.log(jobOffers[0]);
         res.json({response: jobOffers[0]});
+    });
+});
+
+/*
+ *  Edit user cv
+ */
+router.post('/edit-cv', (req, res, next) => {
+    console.log(req.body);
+    Cv.editCvByUsername(req.body, () => {
+        console.log("1");
+        res.json({success: true, msg:"Cv edited"});
     });
 });
 

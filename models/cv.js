@@ -6,7 +6,9 @@ const connection = require('../config/connection');
 /*
  *  user_registration Schema
  */
-class UserProfileSchema {
+class CvSchema {
+    
+    /*
     constructor(name, email, username, description, address, age){
         this.name = name;
         this.email = email;
@@ -15,14 +17,15 @@ class UserProfileSchema {
         this.address = address;
         this.age = age;
     }
+    */
 }
 
-module.exports = UserProfileSchema;
+module.exports = CvSchema;
 
-module.exports.getUserProfileById = function(id, callback){
+module.exports.getCvProfileById = function(id, callback){
     var sql = "SELECT * " +
-              "FROM user_profile " +
-              "WHERE id_user = " + id;
+              "FROM cv " +
+              "WHERE id_cv = " + id;
     connection.query(sql, function(err, result){
         if(err){
             callback(1, null);
@@ -31,6 +34,14 @@ module.exports.getUserProfileById = function(id, callback){
         callback(null, result[0]);//(may get more than one row)
     });  
 }
+module.exports.editCvByUsername = function(fullDetails, callback){
+    var sql = "UPDATE cv " +  
+              "SET description = " + '\'' + fullDetails['description'] + '\'' + " , " + 
+              "WHERE username = " + '\'' + fullDetails['username'] + '\'' + " ; ";
+    console.log(sql);
+}
+
+/*
 module.exports.editUserProfileByUsername = function(userProfile, callback){
     var strAux = "";
     for(var property in userProfile){
@@ -56,3 +67,4 @@ module.exports.editUserProfileByUsername = function(userProfile, callback){
         callback(null);
     });
 }
+*/
