@@ -60,7 +60,7 @@ var ValidateService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(379);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(536);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -235,7 +235,7 @@ webpackEmptyContext.id = 398;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(486);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(529);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(531);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(517);
 
 
@@ -272,8 +272,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(699),
-            styles: [__webpack_require__(689)]
+            template: __webpack_require__(703),
+            styles: [__webpack_require__(691)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -293,22 +293,24 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(516);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__ = __webpack_require__(524);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_register_register_component__ = __webpack_require__(526);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_login_login_component__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__ = __webpack_require__(522);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__ = __webpack_require__(519);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_edit_profile_edit_profile_component__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__ = __webpack_require__(525);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_register_register_component__ = __webpack_require__(527);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_login_login_component__ = __webpack_require__(524);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__ = __webpack_require__(523);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__ = __webpack_require__(520);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__ = __webpack_require__(526);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_edit_profile_edit_profile_component__ = __webpack_require__(522);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_add_offer_add_offer_component__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_edit_cv_edit_cv_component__ = __webpack_require__(520);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular2_flash_messages__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__ = __webpack_require__(527);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_info_service__ = __webpack_require__(528);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_auth_service__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_validate_service__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_edit_cv_edit_cv_component__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_testing_testing_component__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_add_test_add_test_component__ = __webpack_require__(519);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_common__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__ = __webpack_require__(529);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_info_service__ = __webpack_require__(530);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_service__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_validate_service__ = __webpack_require__(340);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -340,15 +342,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_8__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'edit-profile', component: __WEBPACK_IMPORTED_MODULE_12__components_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'add-offer', component: __WEBPACK_IMPORTED_MODULE_13__components_add_offer_add_offer_component__["a" /* AddOfferComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'edit-cv', component: __WEBPACK_IMPORTED_MODULE_14__components_edit_cv_edit_cv_component__["a" /* EditCvComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__["a" /* AuthGuard */]] }
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'edit-profile', component: __WEBPACK_IMPORTED_MODULE_12__components_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'add-offer', component: __WEBPACK_IMPORTED_MODULE_13__components_add_offer_add_offer_component__["a" /* AddOfferComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'edit-cv', component: __WEBPACK_IMPORTED_MODULE_14__components_edit_cv_edit_cv_component__["a" /* EditCvComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'testing', component: __WEBPACK_IMPORTED_MODULE_15__components_testing_testing_component__["a" /* TestingComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'add-test', component: __WEBPACK_IMPORTED_MODULE_16__components_add_test_add_test_component__["a" /* AddTestComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -365,21 +371,23 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_edit_profile_edit_profile_component__["a" /* EditProfileComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__components_add_offer_add_offer_component__["a" /* AddOfferComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__components_edit_cv_edit_cv_component__["a" /* EditCvComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__components_edit_cv_edit_cv_component__["a" /* EditCvComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_testing_testing_component__["a" /* TestingComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_add_test_add_test_component__["a" /* AddTestComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
-                __WEBPACK_IMPORTED_MODULE_16_angular2_flash_messages__["FlashMessagesModule"]
+                __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__["FlashMessagesModule"]
             ],
             providers: [
-                { provide: __WEBPACK_IMPORTED_MODULE_15__angular_common__["LocationStrategy"], useClass: __WEBPACK_IMPORTED_MODULE_15__angular_common__["HashLocationStrategy"] },
-                __WEBPACK_IMPORTED_MODULE_20__services_validate_service__["a" /* ValidateService */],
-                __WEBPACK_IMPORTED_MODULE_19__services_auth_service__["a" /* AuthService */],
-                __WEBPACK_IMPORTED_MODULE_18__services_info_service__["a" /* InfoService */],
-                __WEBPACK_IMPORTED_MODULE_17__guards_auth_guard__["a" /* AuthGuard */]
+                { provide: __WEBPACK_IMPORTED_MODULE_17__angular_common__["LocationStrategy"], useClass: __WEBPACK_IMPORTED_MODULE_17__angular_common__["HashLocationStrategy"] },
+                __WEBPACK_IMPORTED_MODULE_22__services_validate_service__["a" /* ValidateService */],
+                __WEBPACK_IMPORTED_MODULE_21__services_auth_service__["a" /* AuthService */],
+                __WEBPACK_IMPORTED_MODULE_20__services_info_service__["a" /* InfoService */],
+                __WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         }), 
@@ -455,8 +463,8 @@ var AddOfferComponent = (function () {
     AddOfferComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-add-offer',
-            template: __webpack_require__(700),
-            styles: [__webpack_require__(690)]
+            template: __webpack_require__(704),
+            styles: [__webpack_require__(692)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], AddOfferComponent);
@@ -468,6 +476,41 @@ var AddOfferComponent = (function () {
 /***/ }),
 
 /***/ 519:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddTestComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AddTestComponent = (function () {
+    function AddTestComponent() {
+    }
+    AddTestComponent.prototype.ngOnInit = function () {
+    };
+    AddTestComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-add-test',
+            template: __webpack_require__(705),
+            styles: [__webpack_require__(693)]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AddTestComponent);
+    return AddTestComponent;
+}());
+//# sourceMappingURL=/home/vladt/internarena/angular-src/src/add-test.component.js.map
+
+/***/ }),
+
+/***/ 520:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -531,8 +574,8 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-dashboard',
-            template: __webpack_require__(701),
-            styles: [__webpack_require__(691)]
+            template: __webpack_require__(706),
+            styles: [__webpack_require__(694)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], DashboardComponent);
@@ -543,7 +586,7 @@ var DashboardComponent = (function () {
 
 /***/ }),
 
-/***/ 520:
+/***/ 521:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -592,6 +635,7 @@ var EditCvComponent = (function () {
         this.authService.getProfileUser().subscribe(function (profile) {
             var cvData = {
                 name: _this.name,
+                id_user: profile.user.id_user,
                 username: profile.user.username,
                 description: _this.description,
                 skills: _this.skills
@@ -614,8 +658,8 @@ var EditCvComponent = (function () {
     EditCvComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-edit-cv',
-            template: __webpack_require__(702),
-            styles: [__webpack_require__(692)]
+            template: __webpack_require__(707),
+            styles: [__webpack_require__(695)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], EditCvComponent);
@@ -626,7 +670,7 @@ var EditCvComponent = (function () {
 
 /***/ }),
 
-/***/ 521:
+/***/ 522:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -720,8 +764,8 @@ var EditProfileComponent = (function () {
     EditProfileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-edit-profile',
-            template: __webpack_require__(703),
-            styles: [__webpack_require__(693)]
+            template: __webpack_require__(708),
+            styles: [__webpack_require__(696)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], EditProfileComponent);
@@ -732,7 +776,7 @@ var EditProfileComponent = (function () {
 
 /***/ }),
 
-/***/ 522:
+/***/ 523:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -756,8 +800,8 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
-            template: __webpack_require__(704),
-            styles: [__webpack_require__(694)]
+            template: __webpack_require__(709),
+            styles: [__webpack_require__(697)]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);
@@ -767,7 +811,7 @@ var HomeComponent = (function () {
 
 /***/ }),
 
-/***/ 523:
+/***/ 524:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -866,8 +910,8 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login',
-            template: __webpack_require__(705),
-            styles: [__webpack_require__(695)]
+            template: __webpack_require__(710),
+            styles: [__webpack_require__(698)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], LoginComponent);
@@ -878,7 +922,7 @@ var LoginComponent = (function () {
 
 /***/ }),
 
-/***/ 524:
+/***/ 525:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -921,8 +965,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-navbar',
-            template: __webpack_require__(706),
-            styles: [__webpack_require__(696)]
+            template: __webpack_require__(711),
+            styles: [__webpack_require__(699)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], NavbarComponent);
@@ -933,7 +977,7 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 525:
+/***/ 526:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -982,8 +1026,8 @@ var ProfileComponent = (function () {
     ProfileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-profile',
-            template: __webpack_require__(707),
-            styles: [__webpack_require__(697)]
+            template: __webpack_require__(712),
+            styles: [__webpack_require__(700)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object])
     ], ProfileComponent);
@@ -994,7 +1038,7 @@ var ProfileComponent = (function () {
 
 /***/ }),
 
-/***/ 526:
+/***/ 527:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1101,8 +1145,8 @@ var RegisterComponent = (function () {
     RegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(708),
-            styles: [__webpack_require__(698)]
+            template: __webpack_require__(713),
+            styles: [__webpack_require__(701)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], RegisterComponent);
@@ -1113,7 +1157,42 @@ var RegisterComponent = (function () {
 
 /***/ }),
 
-/***/ 527:
+/***/ 528:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TestingComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TestingComponent = (function () {
+    function TestingComponent() {
+    }
+    TestingComponent.prototype.ngOnInit = function () {
+    };
+    TestingComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-testing',
+            template: __webpack_require__(714),
+            styles: [__webpack_require__(702)]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], TestingComponent);
+    return TestingComponent;
+}());
+//# sourceMappingURL=/home/vladt/internarena/angular-src/src/testing.component.js.map
+
+/***/ }),
+
+/***/ 529:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1158,7 +1237,7 @@ var AuthGuard = (function () {
 
 /***/ }),
 
-/***/ 528:
+/***/ 530:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1195,7 +1274,7 @@ var InfoService = (function () {
 
 /***/ }),
 
-/***/ 529:
+/***/ 531:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1208,20 +1287,6 @@ var environment = {
     production: false
 };
 //# sourceMappingURL=/home/vladt/internarena/angular-src/src/environment.js.map
-
-/***/ }),
-
-/***/ 689:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 690:
-/***/ (function(module, exports) {
-
-module.exports = ""
 
 /***/ }),
 
@@ -1284,74 +1349,116 @@ module.exports = ""
 /***/ 699:
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <flash-messages></flash-messages>\n    <router-outlet></router-outlet>\n</div>\n\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 700:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\"> \n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onAddOfferSubmit()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 701:
 /***/ (function(module, exports) {
 
-module.exports = "<button *ngIf=\"!firstPage()\" (click)=\"onClickPrevPage()\" class=\"btn btn-primary\">Previous page</button>\n<p> First Offer on site: {{this.firstOffer + 1}} </p> \n<p> Last Offer on site: {{this.firstOffer + 10}}</p>\n<button (click)=\"onClickNextPage()\" class=\"btn btn-primary\">Next page</button>\n<ul class=\"list-group\">\n    <li *ngFor=\"let i of this.jobOffers\" class=\"list-group-item\">\n        <div class=\"form-group\">\n            <h3>{{i['name']}}</h3>\n            <p>{{i['description']}}</p>\n        </div>\n    </li>\n</ul>\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 702:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user CV</h2>\n        <form (submit)=\"onEditCvSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <button (click)=\"onClickAddSkill()\" class=\"btn btn-primary\">Add skill</button>\n                <input type=\"text\" [(ngModel)]=\"skillName\" name=\"skillName\" class=\"form-control\">\n            </div>            \n            <ul class=\"list-group\">\n                <li *ngFor=\"let i of this.skills\" class=\"list-group-item\">\n                    <div class=\"form-group\">\n                        <p>{{i}}</p>\n                    </div>\n                </li>\n            </ul>   \n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit CV\">  \n        \n        </form>\n    </div>\n</div>\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 703:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user profile</h2>\n        <form (submit)=\"onEditSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Address</label>\n                <input type=\"text\" [(ngModel)]=\"address\" name=\"address\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Age</label>\n                <input type=\"number\" [(ngModel)]=\"age\" name=\"age\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onEditSubmitCompany()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Industry</label>\n                <input type=\"text\" [(ngModel)]=\"industry\" name=\"industry\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <flash-messages></flash-messages>\n    <router-outlet></router-outlet>\n</div>\n\n"
 
 /***/ }),
 
 /***/ 704:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n    <h1 class=\"display-3\">InternArena</h1>\n    <p class=\"lead\">Welcome</p>\n    <div>\n        <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n        <a class=\"btn btn-secondary\" [routerLink]=\"['/login']\">Login</a>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <h3 class=\"text-center\"> For students</h3>\n        </div>\n        <div class=\"col-md-6\">\n            <h3 class=\"text-center\"> For companies</h3>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "<div class=\"row\"> \n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onAddOfferSubmit()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 705:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"choosing()\">\n    <h4>What do you represent?</h4>\n    <button (click)=\"onClickUser()\" class=\"btn btn-primary\">User</button>\n    <button (click)=\"onClickCompany()\" class=\"btn btn-primary\">Company</button>\n</div>\n<div class=\"row\" *ngIf=\"!choosing()\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <form (submit)=\"onLoginSubmitUser()\">  \n            <h2 class=\"page-header\">User login</h2>\n            <div class=\"form-group\">\n                <label>Username</label>\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <form (submit)=\"onLoginSubmitCompany()\">\n            <h2 class=\"page-header\">Company login</h2>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n        </form>\n    </div>\n</div>\n"
+module.exports = "<p>\n  add-test works!\n</p>\n"
 
 /***/ }),
 
 /***/ 706:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n    <a class=\"navbar-brand\" [routerLink]=\"['/']\">InternArena</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/']\">Home</a>\n            </li>\n            <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard</a>\n            </li>\n        </ul>\n        <ul class=\"navbar-nav ml-auto\">\n            <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/profile']\">Profile</a>\n            </li>\n            <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/register']\">Register</a>\n            </li>\n            <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/login']\">Login</a>\n            </li>\n            <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\">\n                <a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Logout</a>\n            </li>\n        </ul>\n\n    </div>\n</nav>\n"
+module.exports = "<button *ngIf=\"!firstPage()\" (click)=\"onClickPrevPage()\" class=\"btn btn-primary\">Previous page</button>\n<p> First Offer on site: {{this.firstOffer + 1}} </p> \n<p> Last Offer on site: {{this.firstOffer + 10}}</p>\n<button (click)=\"onClickNextPage()\" class=\"btn btn-primary\">Next page</button>\n<ul class=\"list-group\">\n    <li *ngFor=\"let i of this.jobOffers\" class=\"list-group-item\">\n        <div class=\"form-group\">\n            <h3>{{i['name']}}</h3>\n            <p>{{i['description']}}</p>\n        </div>\n    </li>\n</ul>\n"
 
 /***/ }),
 
 /***/ 707:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-6\">\n    <div *ngIf=\"userProfile\" class=\"col-md-12\">\n        <h2 class=\"page-header\">{{userProfile.name}}</h2>\n        <ul class=\"list-group\">\n            <li *ngIf=\"userProfile.name\" class=\"list-group-item\">Name: {{userProfile.name}}</li>\n            <li *ngIf=\"userProfile.email\" class=\"list-group-item\">Email: {{userProfile.email}}</li>\n            <li *ngIf=\"userProfile.description\" class=\"list-group-item\">About: {{userProfile.description}}</li>\n            <li *ngIf=\"userProfile.address\" class=\"list-group-item\">Address: {{userProfile.address}}</li>\n            <li *ngIf=\"userProfile.age\" class=\"list-group-item\">Age: {{userProfile.age}}</li>\n        </ul>\n        <button [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/edit-profile']\">Edit profile</a>\n        </button>\n        <button [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/edit-cv']\">Edit CV</a>\n        </button>\n    </div>\n    <div *ngIf=\"companyProfile\" class=\"col-md-12\">\n        <h2 class=\"page-header\">{{companyProfile.name}}</h2>\n        <ul class=\"list-group\">\n            <li *ngIf=\"companyProfile.name\" class=\"list-group-item\">Name: {{companyProfile.name}}</li>\n            <li *ngIf=\"companyProfile.email\" class=\"list-group-item\">Email: {{companyProfile.email}}</li>\n            <li *ngIf=\"companyProfile.description\" class=\"list-group-item\">About: {{companyProfile.description}}</li>\n            <li *ngIf=\"companyProfile.address\" class=\"list-group-item\">Address: {{companyProfile.address}}</li>\n            <li *ngIf=\"companyProfile.industry\" class=\"list-group-item\">Age: {{companyProfile.industry}}</li>\n        </ul>\n        <button [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/edit-profile']\">Edit profile</a>\n        </button>\n        <button [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/add-offer']\">Add offer</a>\n        </button>\n    </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user CV</h2>\n        <form> \n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n\t    <div class=\"form-group row\">\n                <div class=\"col-lg-4\">\n\t\t    <label for=\"sel1\">Skills:</label>\n\t\t</div>\n                <div class=\"col-lg-4\">\n\t\t    <label for=\"sel2\">Level:</label>\n\t\t</div>\n\t    </div>\n            <div class=\"form-group row\">\n\t\t<!--<input type=\"text\" -->\n                <div class=\"col-lg-4\">\n                    <select [(ngModel)]=\"skillName\" name=\"skillName\" class=\"form-control\" id=\"sel1\">\n                        <option>JAVA</option>\n                        <option>C++</option>\n                \t<option>C</option>\n                        <option>SQL</option>\n                        <option>Python</option>\n                        <option>Javascript</option>\n                    </select>\n\t\t</div>\n                <div class=\"col-lg-4\">\n\t\t    <select [(ngModel)]=\"skillLevel\" name=\"skillLevel\" class=\"form-control\" id=\"sel2\">\n                        <option>Beginer</option>\n                        <option>Intermediate</option>\n                \t<option>Advanced</option>\n                    </select>\n\t\t</div>\n                <div class=\"col-lg-4\">\n               \t    <button (click)=\"onClickAddSkill()\" class=\"btn btn-primary\">Add skill</button>\n                </div>\n            </div>            \n            <ul class=\"list-group\">\n                <li *ngFor=\"let i of this.skills\" class=\"list-group-item\">\n                    <div class=\"form-group\">\n                        <p>{{i}}</p>\n                    </div>\n                </li>\n            </ul>   \n            <input (click)=\"onEditCvSubmitUser()\" type=\"submit\" class=\"btn btn-primary\" value=\"Submit CV\">   \n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 708:
 /***/ (function(module, exports) {
 
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user profile</h2>\n        <form (submit)=\"onEditSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Address</label>\n                <input type=\"text\" [(ngModel)]=\"address\" name=\"address\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Age</label>\n                <input type=\"number\" [(ngModel)]=\"age\" name=\"age\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onEditSubmitCompany()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Industry</label>\n                <input type=\"text\" [(ngModel)]=\"industry\" name=\"industry\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 709:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"jumbotron text-center\">\n    <h1 class=\"display-3\">InternArena</h1>\n    <p class=\"lead\">Welcome</p>\n    <div>\n        <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n        <a class=\"btn btn-secondary\" [routerLink]=\"['/login']\">Login</a>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <h3 class=\"text-center\"> For students</h3>\n        </div>\n        <div class=\"col-md-6\">\n            <h3 class=\"text-center\"> For companies</h3>\n        </div>\n    </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ 710:
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"choosing()\">\n    <h4>What do you represent?</h4>\n    <button (click)=\"onClickUser()\" class=\"btn btn-primary\">User</button>\n    <button (click)=\"onClickCompany()\" class=\"btn btn-primary\">Company</button>\n</div>\n<div class=\"row\" *ngIf=\"!choosing()\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <form (submit)=\"onLoginSubmitUser()\">  \n            <h2 class=\"page-header\">User login</h2>\n            <div class=\"form-group\">\n                <label>Username</label>\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <form (submit)=\"onLoginSubmitCompany()\">\n            <h2 class=\"page-header\">Company login</h2>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n        </form>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 711:
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n    <a class=\"navbar-brand\" [routerLink]=\"['/']\">InternArena</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/']\">Home</a>\n            </li>\n            <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard</a>\n            </li>\n        </ul>\n        <ul class=\"navbar-nav ml-auto\">\n            <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/profile']\">Profile</a>\n            </li>\n            <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/register']\">Register</a>\n            </li>\n            <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/login']\">Login</a>\n            </li>\n            <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\">\n                <a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Logout</a>\n            </li>\n        </ul>\n\n    </div>\n</nav>\n"
+
+/***/ }),
+
+/***/ 712:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-6\">\n    <div *ngIf=\"userProfile\" class=\"col-md-12\">\n        <h2 class=\"page-header\">{{userProfile.name}}</h2>\n        <ul class=\"list-group\">\n            <li *ngIf=\"userProfile.name\" class=\"list-group-item\">Name: {{userProfile.name}}</li>\n            <li *ngIf=\"userProfile.email\" class=\"list-group-item\">Email: {{userProfile.email}}</li>\n            <li *ngIf=\"userProfile.description\" class=\"list-group-item\">About: {{userProfile.description}}</li>\n            <li *ngIf=\"userProfile.address\" class=\"list-group-item\">Address: {{userProfile.address}}</li>\n            <li *ngIf=\"userProfile.age\" class=\"list-group-item\">Age: {{userProfile.age}}</li>\n        </ul>\n        <button class=\"btn\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/edit-profile']\">Edit profile</a>\n        </button>\n        <button class=\"btn\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/edit-cv']\">Edit CV</a>\n        </button>\n        <button class=\"btn\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/testing']\">Take test</a>\n        </button>\n    </div>\n    <div *ngIf=\"companyProfile\" class=\"col-md-12\">\n        <h2 class=\"page-header\">{{companyProfile.name}}</h2>\n        <ul class=\"list-group\">\n            <li *ngIf=\"companyProfile.name\" class=\"list-group-item\">Name: {{companyProfile.name}}</li>\n            <li *ngIf=\"companyProfile.email\" class=\"list-group-item\">Email: {{companyProfile.email}}</li>\n            <li *ngIf=\"companyProfile.description\" class=\"list-group-item\">About: {{companyProfile.description}}</li>\n            <li *ngIf=\"companyProfile.address\" class=\"list-group-item\">Address: {{companyProfile.address}}</li>\n            <li *ngIf=\"companyProfile.industry\" class=\"list-group-item\">Age: {{companyProfile.industry}}</li>\n        </ul>\n        <button class=\"btn\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/edit-profile']\">Edit profile</a>\n        </button>\n        <button class=\"btn\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/add-offer']\">Add offer</a>\n        </button>\n        <button class=\"btn\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/add-test']\">Add test</a>\n        </button>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 713:
+/***/ (function(module, exports) {
+
 module.exports = "<div *ngIf=\"choosing()\">\n    <h4>What do you want to register?</h4>\n    <button (click)=\"onClickUser()\" class=\"btn btn-primary\">User</button>\n    <button (click)=\"onClickCompany()\" class=\"btn btn-primary\">Company</button>\n</div>\n<div class=\"row\" *ngIf=\"!choosing()\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">User Register</h2>\n        <form (submit)=\"onRegisterSubmitUser()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Username</label>\n                <input type=\"text\" [(ngModel)]=\"username\" name=\"username\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" [(ngModel)]=\"email\" name=\"email\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Company Register</h2>\n        <form (submit)=\"onRegisterSubmitCompany()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Email</label>\n                <input type=\"text\" [(ngModel)]=\"email\" name=\"email\"class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n            </div>\n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 746:
+/***/ 714:
+/***/ (function(module, exports) {
+
+module.exports = "\n"
+
+/***/ }),
+
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(399);
@@ -1359,5 +1466,5 @@ module.exports = __webpack_require__(399);
 
 /***/ })
 
-},[746]);
+},[752]);
 //# sourceMappingURL=main.bundle.map

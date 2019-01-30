@@ -22,6 +22,31 @@ class CvSchema {
 
 module.exports = CvSchema;
 
+module.exports.getSkillIdByName = function(skillName, callback){
+    var sql = "SELECT id_skill " +
+              "FROM skill " +
+              "WHERE name = " + '\'' + skillName + '\'';
+    connection.query(sql, function(err, result){
+        if(err){
+            callback(1, null);
+            throw err;
+        }
+        callback(null, result[0]);
+    });
+}
+module.exports.getCvIdByIdUser = function(idUser, callback){
+    var sql = "SELECT id_cv " +
+              "FROM cv " +
+              "WHERE id_user = " + idUser;
+    connection.query(sql, function(err, result){
+        //console.log(err);
+        if(err){
+            callback(1, null);
+            throw err;
+        }
+        callback(null, result[0]);
+    });
+}
 module.exports.getCvProfileById = function(id, callback){
     var sql = "SELECT * " +
               "FROM cv " +
@@ -36,9 +61,46 @@ module.exports.getCvProfileById = function(id, callback){
 }
 module.exports.editCvByUsername = function(fullDetails, callback){
     var sql = "UPDATE cv " +  
-              "SET description = " + '\'' + fullDetails['description'] + '\'' + " , " + 
-              "WHERE username = " + '\'' + fullDetails['username'] + '\'' + " ; ";
-    console.log(sql);
+              "SET description = " + '\'' + fullDetails['description'] + '\'' + 
+              "WHERE id_user = " + fullDetails['id_user'];
+    //console.log(fullDetails['skills'][0]);
+    connection.query(sql, function(err, result){
+        if(err){
+            callback(1);
+            throw err;
+        }
+        //console.log("dupa primul log");
+        //var skillName = fullDetails['skills'][0];
+        module.exports.getCvIdByIdUser(fullDetails['id_user'], function(err, result){
+            if(err){
+                callback(1);
+                throw err;
+            }
+            id_cv = result['id_cv'];
+            module.exports.getSkillIdByName(fullDetails['skills'][0], function(err, result){
+                if(err){
+                    callback(1);
+                    throw err;
+                }
+                id_skill = result['id_skill'];
+                //console.log(id_cv['id_cv']);
+                //console.log(id_skill['id_skill']);
+                var sql = "INSERT INTO linker_skill_cv (id_skill, id_cv) " + 
+                          "VALUES (" + id_skill + "," + 
+                                     + id_cv + ")";
+                connection.query(sql, function(err, result){
+                    if(err){
+                        callback(1);
+                        throw err;
+                    }
+                    callback(null);
+                });
+            });
+        });
+        //callback(null);
+        //sql = "";
+        //callback(null);-la final
+    });
 }
 
 /*

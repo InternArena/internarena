@@ -117,9 +117,9 @@ router.get('/get-job-offers', passport.authenticate('jwt', {session: false}), (r
  *  Edit user cv
  */
 router.post('/edit-cv', (req, res, next) => {
-    console.log(req.body);
+    //console.log(req.body);
     Cv.editCvByUsername(req.body, () => {
-        console.log("1");
+        //console.log("1");
         res.json({success: true, msg:"Cv edited"});
     });
 });

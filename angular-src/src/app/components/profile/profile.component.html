@@ -8,11 +8,14 @@
             <li *ngIf="userProfile.address" class="list-group-item">Address: {{userProfile.address}}</li>
             <li *ngIf="userProfile.age" class="list-group-item">Age: {{userProfile.age}}</li>
         </ul>
-        <button [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <button class="btn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
             <a class="nav-link" [routerLink]="['/edit-profile']">Edit profile</a>
         </button>
-        <button [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <button class="btn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
             <a class="nav-link" [routerLink]="['/edit-cv']">Edit CV</a>
+        </button>
+        <button class="btn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" [routerLink]="['/testing']">Take test</a>
         </button>
     </div>
     <div *ngIf="companyProfile" class="col-md-12">
@@ -24,11 +27,14 @@
             <li *ngIf="companyProfile.address" class="list-group-item">Address: {{companyProfile.address}}</li>
             <li *ngIf="companyProfile.industry" class="list-group-item">Age: {{companyProfile.industry}}</li>
         </ul>
-        <button [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <button class="btn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
             <a class="nav-link" [routerLink]="['/edit-profile']">Edit profile</a>
         </button>
-        <button [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <button class="btn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
             <a class="nav-link" [routerLink]="['/add-offer']">Add offer</a>
+        </button>
+        <button class="btn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" [routerLink]="['/add-test']">Add test</a>
         </button>
     </div>
 </div>

@@ -14,6 +14,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
 import { EditCvComponent } from './components/edit-cv/edit-cv.component';
+import { TestingComponent } from './components/testing/testing.component';
+import { AddTestComponent } from './components/add-test/add-test.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
     {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
     {path:'edit-profile', component: EditProfileComponent, canActivate:[AuthGuard]},
     {path:'add-offer', component: AddOfferComponent, canActivate:[AuthGuard]},
-    {path:'edit-cv', component: EditCvComponent, canActivate:[AuthGuard]}    
+    {path:'edit-cv', component: EditCvComponent, canActivate:[AuthGuard]},
+    {path:'testing', component: TestingComponent, canActivate:[AuthGuard]},
+    {path:'add-test', component: AddTestComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -45,7 +49,9 @@ const appRoutes: Routes = [
         ProfileComponent,
         EditProfileComponent,
         AddOfferComponent,
-        EditCvComponent
+        EditCvComponent,
+        TestingComponent,
+        AddTestComponent
     ],
     imports: [
         BrowserModule,

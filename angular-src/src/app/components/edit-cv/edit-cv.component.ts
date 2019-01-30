@@ -41,10 +41,11 @@ export class EditCvComponent implements OnInit {
     }
     updateCVEditor(){
     }
-    onEditCvSubmitUser(){ 
+    onEditCvSubmitUser(){
         this.authService.getProfileUser().subscribe(profile => {
             const cvData = {
                 name: this.name,
+                id_user: profile.user.id_user,
                 username: profile.user.username,
 		        description: this.description,
 		        skills: this.skills
