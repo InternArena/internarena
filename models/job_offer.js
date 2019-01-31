@@ -57,9 +57,10 @@ module.exports.addJobOffer = function(newJobOffer, callback){
         console.log(newJobOffer.skill);
         //module.exports.getCvIdByIdUser(fullDetails['id_user'], function(err, result){
         module.exports.getSkillIdByName(newJobOffer.skill, function(err, result){  
-            var sql = "INSERT INTO linker_skill_offer (id_skill, id_offer) " + 
+            var sql = "INSERT INTO linker_skill_offer (id_skill, id_offer, skill_level) " + 
                       "VALUES (" + result['id_skill'] + "," + 
-                                 + id_offer + ")";
+                                 + id_offer + "," + 
+                                 + 10 + ")";
             console.log(sql);
             connection.query(sql, function(err, result){
                 if(err){

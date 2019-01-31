@@ -25,16 +25,16 @@
                         <option>JAVA</option>
                         <option>C++</option>
                 	<option>C</option>
-                        <option>SQL</option>
+                        <option>CSS</option>
                         <option>Python</option>
                         <option>Javascript</option>
                     </select>
 		</div>
                 <div class="col-lg-4">
 		    <select [(ngModel)]="skillLevel" name="skillLevel" class="form-control" id="sel2">
-                        <option>Beginer</option>
-                        <option>Intermediate</option>
-                	<option>Advanced</option>
+                        <option value="3">Beginer</option>
+                        <option value="6">Intermediate</option>
+                	<option value="10">Advanced</option>
                     </select>
 		</div>
                 <div class="col-lg-4">
@@ -42,11 +42,20 @@
                 </div>
             </div>            
             <ul class="list-group">
+		<div class="col-lg-6">
                 <li *ngFor="let i of this.skills" class="list-group-item">
-                    <div class="form-group">
+                    <div class="row">
                         <p>{{i}}</p>
                     </div>
                 </li>
+		</div>
+		<!--div class="col-lg-6">
+                <li *ngFor="let i of this.skillLevel" class="list-group-item">
+                    <div class="row">
+                        <p>{{i}}</p>
+                    </div>
+                </li>
+		</div-->
             </ul>   
             <input (click)="onEditCvSubmitUser()" type="submit" class="btn btn-primary" value="Submit CV">   
         </form>

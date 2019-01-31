@@ -427,6 +427,7 @@ var AddOfferComponent = (function () {
         this.authService = authService;
         this.router = router;
         this.flashMessage = flashMessage;
+        this.skillLevel = 0;
     }
     AddOfferComponent.prototype.ngOnInit = function () {
     };
@@ -443,7 +444,8 @@ var AddOfferComponent = (function () {
                 name: _this.name,
                 description: _this.description,
                 id_company: profile.company.id_company,
-                skill: _this.skill
+                skill: _this.skill,
+                skillLevel: _this.skillLevel
             };
             ///checker needed
             _this.authService.addJobOffer(jobOffer).subscribe(function (data) {
@@ -616,7 +618,9 @@ var EditCvComponent = (function () {
         this.router = router;
         this.flashMessage = flashMessage;
         this.skills = [];
+        this.skillsLevel = [];
         this.skillsNr = 0;
+        this.skillLevel = 0;
         this.userFront = false;
     }
     EditCvComponent.prototype.ngOnInit = function () {
@@ -627,6 +631,7 @@ var EditCvComponent = (function () {
     };
     EditCvComponent.prototype.onClickAddSkill = function () {
         this.skills.push(this.skillName);
+        this.skillsLevel.push(this.skillLevel);
         this.skillName = "";
     };
     EditCvComponent.prototype.updateCVEditor = function () {
@@ -639,7 +644,8 @@ var EditCvComponent = (function () {
                 id_user: profile.user.id_user,
                 username: profile.user.username,
                 description: _this.description,
-                skills: _this.skills
+                skills: _this.skills,
+                skillsLevel: _this.skillsLevel
             };
             _this.authService.editCvUser(cvData).subscribe(function (data) {
                 if (data.success) {
@@ -1385,28 +1391,28 @@ module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <fla
 /***/ 704:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\"> \n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onAddOfferSubmit()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n                <div class=\"form-group\">\n\t\t            <label>Skill</label>\n                    <div class=\"col-lg-4\">\n                        <select [(ngModel)]=\"skill\" name=\"skill\" class=\"form-control\" id=\"sel1\">\n                            <option>JAVA</option>\n                            <option>C++</option>\n                \t        <option>C</option>\n                            <option>SQL</option>\n                            <option>Python</option>\n                            <option>Javascript</option>\n                        </select>\n\t\t            </div>\n                </div>\n                \n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
+module.exports = "<div class=\"row\"> \n    <div class=\"col-md-6\" *ngIf=\"trueCompany()\">\n        <h2 class=\"page-header\">Edit company profile</h2>\n        <form (submit)=\"onAddOfferSubmit()\">\n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n                <div class=\"form-group\">\n\t\t            <label>Skill</label>\n                    <div class=\"col-lg-4\">\n                        <select [(ngModel)]=\"skill\" name=\"skill\" class=\"form-control\" id=\"sel1\">\n                            <option>JAVA</option>\n                            <option>C++</option>\n                \t        <option>C</option>\n                            <option>CSS</option>\n                            <option>Python</option>\n                            <option>Javascript</option>\n                        </select>\n\t\t            </div>\n                </div>\n                \n            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 705:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  add-test works!\n</p>\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\">\n\t<h2 class=\"page-header\">Add Company Test</h2>\n\t<form (submit)=\"onSubmitCompany()\">\n\t    <div class=\"form-group\">\n\t\t<label>Test Title:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\">\n\t    </div>\n\t    <div class=\"form-group\">\n\t\t<label>Question 1:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"quest1\" name=\"quest1\" class=\"form-control\">\n\t    </div>\n\t    <div class=\"form-group\">\n\t\t<label>Answer 1:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"answer1\" name=\"answer1\" class=\"form-control\">\n\t    </div>\n\t    <div class=\"form-group\">\n\t\t<label>Answer 2:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"answer2\" name=\"answer2\" class=\"form-control\">\n\t    </div>\n\t    <div class=\"form-group\">\n\t\t<label>Answer 3:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"answer3\" name=\"answer3\" class=\"form-control\">\n\t    </div>\n\t    <div class=\"form-group\">\n\t\t<label>Answer 4:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"answer4\" name=\"answer4\" class=\"form-control\">\n\t    </div>\n\t    <div class=\"form-group\">\n\t\t<label>Correct Answer for Question 1:</label>\n\t\t<select [(ngModel)]=\"select1\" name=\"select1\">\n\t\t     <option value=\"1\">Answer 1</option>\n\t\t     <option value=\"2\">Answer 2</option>\n\t\t     <option value=\"3\">Answer 3</option>\n\t\t     <option value=\"4\">Answer 4</option>\n\t\t</select>\n\t    </div>\t\n\t    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n\t</form>\n    </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 706:
 /***/ (function(module, exports) {
 
-module.exports = "<button *ngIf=\"!firstPage()\" (click)=\"onClickPrevPage()\" class=\"btn btn-primary\">Previous page</button>\n<p> First Offer on site: {{this.firstOffer + 1}} </p> \n<p> Last Offer on site: {{this.firstOffer + 10}}</p>\n<button (click)=\"onClickNextPage()\" class=\"btn btn-primary\">Next page</button>\n<ul class=\"list-group\">\n    <li *ngFor=\"let i of this.jobOffers\" class=\"list-group-item\">\n        <div class=\"form-group\">\n            <h3>{{i['name']}}</h3>\n            <p>{{i['description']}}</p>\n        </div>\n    </li>\n</ul>\n"
+module.exports = "<!--div class=\"row\">\n    <div class=\"col-lg-4>\n\t<button *ngIf=\"!firstPage()\" (click)=\"onClickPrevPage()\" class=\"btn btn-primary\">Previous page</button>\n    </div>\n    <div class=\"col-lg-4>\n\t<p> First Offer on site: {{this.firstOffer + 1}} </p> \n    </div>\n    <div class=\"col-lg-4>\n\t<p> Last Offer on site: {{this.firstOffer + 10}}</p>\n    </div>\n    <div class=\"col-lg-4>\n\t<button (click)=\"onClickNextPage()\" class=\"btn btn-primary\">Next page</button>\n    </div>\n</div-->\n<ul class=\"list-group\">\n    <li *ngFor=\"let i of this.jobOffers\" class=\"list-group-item\">\n        <div class=\"form-group\">\n            <h3>{{i['name']}}</h3>\n            <p>{{i['description']}}</p>\n        </div>\n\t<button (click)=\"onSubmit()\" class=\"btn btn-primary\">Apply</button>\n        <!--form (submit)=\"onSubmit()\">\n\t    <input type=\"submit\" class=\"btn btn-primary\" value=\"Apply\">\n\t</form-->\n    </li>\n</ul>\n"
 
 /***/ }),
 
 /***/ 707:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user CV</h2>\n        <form> \n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n\t    <div class=\"form-group row\">\n                <div class=\"col-lg-4\">\n\t\t    <label for=\"sel1\">Skills:</label>\n\t\t</div>\n                <div class=\"col-lg-4\">\n\t\t    <label for=\"sel2\">Level:</label>\n\t\t</div>\n\t    </div>\n            <div class=\"form-group row\">\n\t\t<!--<input type=\"text\" -->\n                <div class=\"col-lg-4\">\n                    <select [(ngModel)]=\"skillName\" name=\"skillName\" class=\"form-control\" id=\"sel1\">\n                        <option>JAVA</option>\n                        <option>C++</option>\n                \t<option>C</option>\n                        <option>SQL</option>\n                        <option>Python</option>\n                        <option>Javascript</option>\n                    </select>\n\t\t</div>\n                <div class=\"col-lg-4\">\n\t\t    <select [(ngModel)]=\"skillLevel\" name=\"skillLevel\" class=\"form-control\" id=\"sel2\">\n                        <option>Beginer</option>\n                        <option>Intermediate</option>\n                \t<option>Advanced</option>\n                    </select>\n\t\t</div>\n                <div class=\"col-lg-4\">\n               \t    <button (click)=\"onClickAddSkill()\" class=\"btn btn-primary\">Add skill</button>\n                </div>\n            </div>            \n            <ul class=\"list-group\">\n                <li *ngFor=\"let i of this.skills\" class=\"list-group-item\">\n                    <div class=\"form-group\">\n                        <p>{{i}}</p>\n                    </div>\n                </li>\n            </ul>   \n            <input (click)=\"onEditCvSubmitUser()\" type=\"submit\" class=\"btn btn-primary\" value=\"Submit CV\">   \n        </form>\n    </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\" *ngIf=\"trueUser()\">\n        <h2 class=\"page-header\">Edit user CV</h2>\n        <form> \n            <div class=\"form-group\">\n                <label>Name</label>\n                <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n            </div>\n            <div class=\"form-group\">\n                <label>Description</label>\n                <input type=\"text\" [(ngModel)]=\"description\" name=\"description\" class=\"form-control\">\n            </div>\n\t    <div class=\"form-group row\">\n                <div class=\"col-lg-4\">\n\t\t    <label for=\"sel1\">Skills:</label>\n\t\t</div>\n                <div class=\"col-lg-4\">\n\t\t    <label for=\"sel2\">Level:</label>\n\t\t</div>\n\t    </div>\n            <div class=\"form-group row\">\n\t\t<!--<input type=\"text\" -->\n                <div class=\"col-lg-4\">\n                    <select [(ngModel)]=\"skillName\" name=\"skillName\" class=\"form-control\" id=\"sel1\">\n                        <option>JAVA</option>\n                        <option>C++</option>\n                \t<option>C</option>\n                        <option>CSS</option>\n                        <option>Python</option>\n                        <option>Javascript</option>\n                    </select>\n\t\t</div>\n                <div class=\"col-lg-4\">\n\t\t    <select [(ngModel)]=\"skillLevel\" name=\"skillLevel\" class=\"form-control\" id=\"sel2\">\n                        <option value=\"3\">Beginer</option>\n                        <option value=\"6\">Intermediate</option>\n                \t<option value=\"10\">Advanced</option>\n                    </select>\n\t\t</div>\n                <div class=\"col-lg-4\">\n               \t    <button (click)=\"onClickAddSkill()\" class=\"btn btn-primary\">Add skill</button>\n                </div>\n            </div>            \n            <ul class=\"list-group\">\n\t\t<div class=\"col-lg-6\">\n                <li *ngFor=\"let i of this.skills\" class=\"list-group-item\">\n                    <div class=\"row\">\n                        <p>{{i}}</p>\n                    </div>\n                </li>\n\t\t</div>\n\t\t<!--div class=\"col-lg-6\">\n                <li *ngFor=\"let i of this.skillLevel\" class=\"list-group-item\">\n                    <div class=\"row\">\n                        <p>{{i}}</p>\n                    </div>\n                </li>\n\t\t</div-->\n            </ul>   \n            <input (click)=\"onEditCvSubmitUser()\" type=\"submit\" class=\"btn btn-primary\" value=\"Submit CV\">   \n        </form>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1455,7 +1461,7 @@ module.exports = "<div *ngIf=\"choosing()\">\n    <h4>What do you want to regist
 /***/ 714:
 /***/ (function(module, exports) {
 
-module.exports = "\n"
+module.exports = "<div class=\"col-md 12\">\n    <h2 class=\"page-header\" [(ngModel)]=\"title\" name=\"title\">test</h2>\n    <form (submit)=\"onSubmitUser()\">\n\t<div class=\"form-group\"> \n\t    <h3 [(ngModel)]=\"quest1\" name=\"quest1\">q1:</h3>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer1\" name=\"answer1\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer2\" name=\"answer2\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer3\" name=\"answer3\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer4\" name=\"answer4\">\n\t    </div>\n\t</div>\n\t<div class=\"form-group\"> \n\t    <h3 [(ngModel)]=\"quest2\" name=\"quest2\">q2:</h3>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer21\" name=\"answer21\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer22\" name=\"answer22\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer23\" name=\"answer23\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer24\" name=\"answer24\">\n\t    </div>\n\t</div>\n\t<div class=\"form-group\"> \n\t    <h3 [(ngModel)]=\"quest3\" name=\"quest3\">q3:</h3>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer31\" name=\"answer31\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer32\" name=\"answer32\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer33\" name=\"answer33\">\n\t    </div>\n\t    <div class=\"radio\">\n\t\t<input type=\"radio\" [(ngModel)]=\"answer34\" name=\"answer34\">\n\t    </div>\n\t</div>\n\t<input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n    </form>\n</div>\n"
 
 /***/ }),
 

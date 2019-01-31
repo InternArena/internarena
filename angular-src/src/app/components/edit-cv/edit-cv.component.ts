@@ -10,8 +10,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class EditCvComponent implements OnInit {
     skills: String[] = [];
+    skillsLevel: number[] = [];
     skillsNr:number = 0;
-
+   
     education:{
 	    id_education: number,
 	    details: String
@@ -20,6 +21,7 @@ export class EditCvComponent implements OnInit {
     name: String;
     skillName: String;
     description: String;
+    skillLevel: number = 0;
 
     userFront: boolean = false;
 
@@ -37,6 +39,7 @@ export class EditCvComponent implements OnInit {
     } 
     onClickAddSkill(){
         this.skills.push(this.skillName); 
+        this.skillsLevel.push(this.skillLevel);
         this.skillName = "";
     }
     updateCVEditor(){
@@ -48,7 +51,8 @@ export class EditCvComponent implements OnInit {
                 id_user: profile.user.id_user,
                 username: profile.user.username,
 		        description: this.description,
-		        skills: this.skills
+                skills: this.skills,
+                skillsLevel: this.skillsLevel
 	        };
             this.authService.editCvUser(cvData).subscribe(data => {
                 if(data.success){

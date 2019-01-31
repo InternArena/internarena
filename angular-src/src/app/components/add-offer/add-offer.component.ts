@@ -12,6 +12,7 @@ export class AddOfferComponent implements OnInit {
     name: String;
     description: String;
     skill: String;
+    skillLevel: number = 0;
     id_company: number;
 
     constructor(
@@ -35,7 +36,8 @@ export class AddOfferComponent implements OnInit {
                 name: this.name,
                 description: this.description,
                 id_company: profile.company.id_company,
-                skill: this.skill
+                skill: this.skill,
+                skillLevel: this.skillLevel
             };
             ///checker needed
             this.authService.addJobOffer(jobOffer).subscribe(data => {

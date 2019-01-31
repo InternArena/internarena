@@ -63,6 +63,7 @@ module.exports.editCvByUsername = function(fullDetails, callback){
     var sql = "UPDATE cv " +  
               "SET description = " + '\'' + fullDetails['description'] + '\'' + 
               "WHERE id_user = " + fullDetails['id_user'];
+    console.log(fullDetails);
     //console.log(fullDetails['skills'][0]);
     connection.query(sql, function(err, result){
         if(err){
@@ -85,9 +86,10 @@ module.exports.editCvByUsername = function(fullDetails, callback){
                 id_skill = result['id_skill'];
                 //console.log(id_cv['id_cv']);
                 //console.log(id_skill['id_skill']);
-                var sql = "INSERT INTO linker_skill_cv (id_skill, id_cv) " + 
+                var sql = "INSERT INTO linker_skill_cv (id_skill, id_cv, skill_level) " + 
                           "VALUES (" + id_skill + "," + 
-                                     + id_cv + ")";
+                                     + id_cv + "," + 
+                                     + fullDetails['skillsLevel'][0] + ")";
                 connection.query(sql, function(err, result){
                     if(err){
                         callback(1);
